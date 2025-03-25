@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class VisualizadorDeMedia {
+public class VisualizadorDeMedia implements Observer{
     private List<Integer> valores;
 
     public VisualizadorDeMedia(List<Integer> valores){
@@ -14,6 +14,12 @@ public class VisualizadorDeMedia {
     public void acrescentaValor(Integer valor){
         this.valores.add(valor);
     }
+    
+    public void update(List<Integer> valores) {
+        this.valores = valores;
+        exibeMedia();
+    }
+    
 
     public void exibeMedia(){
         double media = valores.stream()

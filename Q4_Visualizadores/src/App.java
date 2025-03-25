@@ -8,18 +8,20 @@ public class App {
 
         Scanner s = new Scanner(System.in);
         int valor = 0;
+        dados.registraObservador(cs);
+        dados.registraObservador(cm);
         while(true){
             System.out.println("\nEntre um valor positivo maior que zero (0=fim):");
             valor = Integer.parseInt(s.nextLine());
-            if (valor == 0){
+            if (valor == 0) {
                 break;
             }
-            dados.add(valor);
-            cs.acrescentaValor(valor);
-            cm.acrescentaValor(valor);
-            cs.exibeSomatorio();
-            cm.exibeMedia();
+            dados.add(valor);  // Adiciona o valor e notifica os observadores para alterar resultados
         }
-        System.out.println("Fim");
+        
+        cm.exibeMedia();
+        cs.exibeSomatorio();
+        }
+
     }
-}
+
